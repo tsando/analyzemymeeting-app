@@ -8,7 +8,6 @@ var formidable = require('formidable');
 var fs = require('fs');
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
 
 // Own modules
 var stats = require('./public/js/stats')
@@ -30,7 +29,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
 
 // -------------------------------------------------------------
 // Upload route
