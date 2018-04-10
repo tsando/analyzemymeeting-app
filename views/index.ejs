@@ -6,57 +6,82 @@
     <%= title %>
   </title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-  <link rel='stylesheet' href='/css/signin.css'>
+  <link rel='stylesheet' href='/css/cover.css'>
   <link rel="icon" href="/images/favicon.png">
   <!-- <link rel='stylesheet' href='/css/style.css'> -->
 </head>
 
 <body>
   <div class="text-center">
-    <!-- <form class="form-signin">
-      <h1>
-        <%= title %>
-      </h1>
-      <p>Welcome to
-        <%= title %>
-      </p>
-    </form> -->
-    <!-- <form class="form-signin"> -->
-    <h1>
+    <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
+      <header class="masthead mb-auto">
+        <!-- <div class="inner">
+          <h3 class="masthead-brand">Cover</h3>
+          <nav class="nav nav-masthead justify-content-center">
+            <a class="nav-link active" href="#">Home</a>
+            <a class="nav-link" href="#">Features</a>
+            <a class="nav-link" href="#">Contact</a>
+          </nav>
+        </div> -->
+      </header>
+
+      <main role="main" class="inner cover">
+        <h1 class="cover-heading">
+          <%= title %>
+        </h1>
+        <img class="mb-4" src="/images/favicon_light.png" alt="" width="92" height="92">
+        <p class="lead">Upload a .wav file of your meeting here to see the stats</p>
+
+        <form action="/stats" enctype="multipart/form-data" method="post">
+          <div class="form-group">
+            <input type="file" class="form-control-file" name="uploaded_file">
+            <!-- <div class="input-group">
+              <span class="input-group-btn">
+                <span class="btn btn-primary" onclick="$(this).parent().find('input[type=file]').click();">Browse</span>
+                <input name="uploaded_file" onchange="$(this).parent().parent().find('.form-control').html($(this).val().split(/[\\|/]/).pop());"
+                  style="display: none;" type="file">
+              </span>
+              <span class="form-control"></span>
+            </div> -->
+            <label for="sel1" class="lead">How many speakers were at your meeting?</label>
+            <select class="form-control" id="sel1">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+            </select>
+            <p class="lead">
+              <input type="submit" value="Get me the stats!" class="btn btn-default">
+            </p>
+          </div>
+        </form>
+
+        <!-- <a href="#" class="btn btn-lg btn-secondary">Learn more</a> -->
+      </main>
+
+      <footer class="mastfoot mt-auto">
+        <!-- <div class="inner">
+          <p>Cover template for
+            <a href="https://getbootstrap.com/">Bootstrap</a>, by
+            <a href="https://twitter.com/mdo">@mdo</a>.</p>
+        </div> -->
+      </footer>
+    </div>
+
+    <!-- <h1>
       <%= title %>
     </h1>
     <img class="mb-4" src="/images/favicon.png" alt="" width="72" height="72">
-    <!-- <h1 class="h3 mb-3 font-weight-normal">Upload a .wav file of your meeting here</h1> -->
-
     <form action="/stats" enctype="multipart/form-data" method="post">
       <div class="form-group">
         <label for="exampleFormControlFile1">Upload a .wav file of your meeting here to get the stats</label>
         <input type="file" class="form-control-file" name="file">
         <input type="submit" value="Upload">
       </div>
-    </form>
-
-    <!-- <form action="/upload" enctype="multipart/form-data" method="post">
-      <input type="text" name="title">
-      <input type="file" name="file">
-      <input type="submit" value="Upload">
     </form> -->
-
-    <!-- <label for="inputEmail" class="sr-only">Email address</label>
-      <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-      <label for="inputPassword" class="sr-only">Password</label>
-      <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-      <div class="checkbox mb-3">
-        <label>
-          <input type="checkbox" value="remember-me"> Remember me
-        </label>
-      </div>
-      <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-      <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p> -->
-    <!-- </form> -->
   </div>
-
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>  
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </body>

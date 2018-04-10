@@ -36,8 +36,8 @@ app.post('/stats', function (req, res) {
   var form = new formidable.IncomingForm();
   form.parse(req, function (err, fields, files) {
     // `file` is the name of the <input> field of type `file`
-    var oldpath = files.file.path;
-    var newpath = path.join(__dirname, '/public/data/uploads/', files.file.name);
+    var oldpath = files.uploaded_file.path;
+    var newpath = path.join(__dirname, '/public/data/uploads/', files.uploaded_file.name);
     fs.rename(oldpath, newpath, function (err) {
       if (err) throw err;
     })
@@ -45,7 +45,7 @@ app.post('/stats', function (req, res) {
       // Must wrap res.render inside function for promise to work
       function () {
         // console.log('After promise complete');
-        res.render('stats', { title: 'AnalyzeMyMeeting' })
+        res.render('stats', { title: 'AnalyzeMyMeeting.com' })
       }
     );
   })
