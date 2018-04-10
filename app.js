@@ -42,12 +42,14 @@ app.post('/stats', function (req, res) {
     var newpath = path.join(__dirname, '/public/data/uploads/', files.file.name);
     fs.rename(oldpath, newpath, function (err) {
       if (err) throw err;
-      stats.run_python(__dirname);
-      res.render('stats', { title: 'AnalyzeMyMeeting' });
-      // stats.read_csvs();
-      // res.write('File uploaded and moved!');
-      // res.end();
     })
+    stats.run_python(__dirname).then(
+      // Must wrap res.render inside function for promise to work
+      function () {
+        // console.log('After promise complete');
+        res.render('stats', { title: 'AnalyzeMyMeeting' })
+      }
+    );
   })
 });
 
