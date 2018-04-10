@@ -8,7 +8,7 @@ exports.run_python = function (dirname) {
         var input = path.join(dirname, '/public/data/uploads')
         var output = path.join(dirname, '/public/data/csvs')
         var nspeakers = 4;
-        var pyprog = spawn('python', ["/Users/tsando/code/analyzemymeeting/analyzemymeeting.py", input, nspeakers, output]);
+        var pyprog = spawn('python', [path.join(dirname, "/public/python/analyzemymeeting.py"), input, nspeakers, output]);
 
         pyprog.stdout.on('data', function (data) {
             // console.log(data);

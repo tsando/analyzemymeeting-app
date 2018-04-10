@@ -10,7 +10,7 @@ var fs = require('fs');
 var indexRouter = require('./routes/index');
 
 // Own modules
-var stats = require('./public/js/stats')
+var run_python = require('./public/js/run_python')
 
 var app = express();
 
@@ -41,7 +41,7 @@ app.post('/stats', function (req, res) {
     fs.rename(oldpath, newpath, function (err) {
       if (err) throw err;
     })
-    stats.run_python(__dirname).then(
+    run_python.run_python(__dirname).then(
       // Must wrap res.render inside function for promise to work
       function () {
         // console.log('After promise complete');
@@ -50,7 +50,6 @@ app.post('/stats', function (req, res) {
     );
   })
 });
-
 // -------------------------------------------------------------
 
 // catch 404 and forward to error handler
