@@ -35,6 +35,8 @@
         <form action="/stats" enctype="multipart/form-data" method="post">
           <div class="form-group">
             <input type="file" class="form-control-file" name="uploaded_file">
+            <input type="text" class="form-control" placeholder="Number of speakers" name="nspeakers">
+            <input type="submit" value="Get me the stats!" class="btn btn-default">            
             <!-- <div class="input-group">
               <span class="input-group-btn">
                 <span class="btn btn-primary" onclick="$(this).parent().find('input[type=file]').click();">Browse</span>
@@ -43,16 +45,15 @@
               </span>
               <span class="form-control"></span>
             </div> -->
-            <label for="sel1" class="lead">How many speakers were at your meeting?</label>
+            <!-- <label for="sel1" class="lead">How many speakers were at your meeting?</label>
             <select class="form-control" id="sel1">
               <option>1</option>
               <option>2</option>
               <option>3</option>
               <option>4</option>
-            </select>
-            <p class="lead">
-              <input type="submit" value="Get me the stats!" class="btn btn-default">
-            </p>
+            </select> -->
+            <!-- <p class="lead">
+            </p> -->
           </div>
         </form>
 
