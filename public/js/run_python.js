@@ -7,6 +7,7 @@ exports.run_python = function (dirname, nspeakers) {
         var spawn = require('child_process').spawn;
         var input = path.join(dirname, '/public/data/uploads')
         var output = path.join(dirname, '/public/data/csvs')
+        // console.log('--> Running:', 'python', [path.join(dirname, "/public/python/analyzemymeeting.py"), input, nspeakers, output])
         var pyprog = spawn('python', [path.join(dirname, "/public/python/analyzemymeeting.py"), input, nspeakers, output]);
 
         pyprog.stdout.on('data', function (data) {
