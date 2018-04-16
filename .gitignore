@@ -3,3 +3,4 @@ node_modules/*
 launch.json
 public/data/csvs/*.csv
 **/__pycache__*
+settings.json
